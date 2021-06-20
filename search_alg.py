@@ -28,9 +28,13 @@ def recursive_binary_search(left_ed, right_ed, number, count=0):
     predict = left + round((right - left) / 2)
     count += 1
 
+    # К проверке границ добавлена проверка
+    # текущего числа для гарантии выхода из рекурсии
     if (number == left) or (number == right) or (number == predict):
         return count
 
+    # Если число не угадано, то запускаем данную функцию
+    # в том диапазоне, в котором находится искомое число
     if number < predict:
         right = predict
         return recursive_binary_search(left, right, number, count)
